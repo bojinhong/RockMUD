@@ -9,15 +9,15 @@ module.exports = {
     "id" : "1",
     "type" : "city",
     "levels" : "All",
-    "description" : "The first city.",
+    "description" : "第一座城市。",
     "reloads": 0,
     "created": "",
     "saved": "",
 	"dark": false,
 	"author": "Rocky",
     "messages": [
-        {"msg": "A cool breeze blows through the streets of Midgaard."},
-        {"msg": "The bustle of the city can be distracting. Keep an eye out for thieves."}
+        {"msg": "一陣涼風吹過街道。"},
+        {"msg": "留意盜賊，城市的喧囂可能分散你注意力。"}
     ],
     "respawnOn": 3,
     "respawnTick": 0,
@@ -59,7 +59,7 @@ module.exports = {
                 {
                     "name": "Rufus",
                     "level": 15,
-                    "short": "Rufus, the mayor of Midgaard",
+                    "short": "魯弗斯，這座城市的市長",
                     "description": "",
                     "race": "human",
                     "id": 9,
@@ -99,7 +99,7 @@ module.exports = {
                     "name": "Boar",
                     "displayName": ["Brown boar", "A old brown boar"],
                     "level": 1,
-                    "short": ["A large brown boar", "A large scared boar"],
+                    "short": ["一隻棕色的大野豬", "一隻巨大的野豬"],
                     "race": "animal",
                     "id": "6",
                     "area": "Midgaard",
@@ -144,7 +144,7 @@ module.exports = {
             ],
             "items" : [{
                 "name": "Torch", 
-                "short": "dirty soot covered torch",
+                "short": "骯髒煙灰覆蓋的火炬",
                 "long": "" ,
                 "area": "Midgaard",
                 "id": "104", 
@@ -187,8 +187,8 @@ module.exports = {
                 "flags": []
             }, {
                 "name": "Short Sword", 
-                "short": "Short Sword",
-                "long": "A sharp looking short sword with a hilt wrapped in leather." ,
+                "short": "短劍",
+                "long": "一把鋒利的短劍包裹著皮革。" ,
                 "area": "Midgaard",
                 "id": "8",
                 "level": 1,
@@ -243,7 +243,7 @@ module.exports = {
         },
         {
             "id" : "2",
-            "title" : "North of Town Square",
+            "title" : "城市廣場北邊",
             "area": "Midgaard",
             "content" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue sagittis efficitur. Vivamus dapibus sem ac mauris pharetra dapibus. Nunc id ex orci. Quisque fringilla dictum orci molestie condimentum. Duis volutpat porttitor ipsum. Sed ac aliquet leo. Nulla at facilisis orci, eu suscipit nibh. ",
             "exits" : [
@@ -273,7 +273,7 @@ module.exports = {
         },
         {
             "id" : "3",
-            "title" : "East of Town Square",
+            "title" : "城市廣場東邊",
             "area": "Midgaard",
             "content" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue sagittis efficitur. Vivamus dapibus sem ac mauris pharetra dapibus. Nunc id ex orci. Quisque fringilla dictum orci molestie condimentum. Duis volutpat porttitor ipsum. Sed ac aliquet leo. Nulla at facilisis orci, eu suscipit nibh. ",
             "terrian" : "stone-road",
@@ -305,7 +305,7 @@ module.exports = {
         },
         {
             "id" : "4",
-            "title" : "South of Town Square",
+            "title" : "城市廣場南邊",
             "area": "Midgaard",
             "content" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue sagittis efficitur. Vivamus dapibus sem ac mauris pharetra dapibus. Nunc id ex orci. Quisque fringilla dictum orci molestie condimentum. Duis volutpat porttitor ipsum. Sed ac aliquet leo. Nulla at facilisis orci, eu suscipit nibh. ",
             "exits" : [
@@ -321,7 +321,7 @@ module.exports = {
         },
         {
             "id" : "5",
-            "title" : "West of Town Square",
+            "title" : "城市廣場西邊",
             "area": "Midgaard",
             "content" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue sagittis efficitur. Vivamus dapibus sem ac mauris pharetra dapibus. Nunc id ex orci. Quisque fringilla dictum orci molestie condimentum. Duis volutpat porttitor ipsum. Sed ac aliquet leo. Nulla at facilisis orci, eu suscipit nibh. ",
             "exits" : [
@@ -355,7 +355,7 @@ module.exports = {
         },
         {
             "id" : "6",
-            "title" : "Beneath Town Square",
+            "title" : "下城區廣場",
             "area": "Midgaard",
             "content" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue sagittis efficitur. Vivamus dapibus sem ac mauris pharetra dapibus. Nunc id ex orci. Quisque fringilla dictum orci molestie condimentum. Duis volutpat porttitor ipsum. Sed ac aliquet leo. Nulla at facilisis orci, eu suscipit nibh. ",
             "exits" : [
@@ -394,7 +394,7 @@ module.exports = {
         },
         {
             "id" : "8",
-            "title" : "The General Store",
+            "title" : "一般商店",
             "area": "Midgaard",
             "content" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue sagittis efficitur. Vivamus dapibus sem ac mauris pharetra dapibus. Nunc id ex orci. Quisque fringilla dictum orci molestie condimentum. Duis volutpat porttitor ipsum. Sed ac aliquet leo. Nulla at facilisis orci, eu suscipit nibh. ",
             "exits" : [

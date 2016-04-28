@@ -620,9 +620,9 @@ Cmd.prototype.move = function(target, command, fn) {
 						if (!sneakAff) {
 							if (Character.canSee(target, roomObj)) {
 								msg = '<span class="yellow">' + target.displayName
-								+ ' leaves the room heading <strong>' + direction + '</strong></div>';
+								+ '離開房間走向 <strong>' + direction + '</strong></div>';
 							} else {
-								msg = '<span class="yellow">Something leaves the room.</div>';
+								msg = '<span class="yellow">有東西離開房間。</div>';
 							}
 						}
 						
@@ -1112,7 +1112,7 @@ Cmd.prototype.look = function(target, command) {
 					});
 				} else {
 					World.msgPlayer(target, {
-						msg: 'It is too dark to see anything!',
+						msg: '太暗了，你看不到任東西！',
 						styleClass: 'error'
 					});
 				}
@@ -1198,7 +1198,7 @@ Cmd.prototype.say = function(target, command) {
 	if (target.position !== 'sleeping') {
 		if (command.msg !== '') {
 			World.msgPlayer(target, {
-				msg: '<div class="cmd-say"><span class="msg-name">You say></span> ' + command.msg + '</div>'
+				msg: '<div class="cmd-say"><span class="msg-name">你說></span> ' + command.msg + '</div>'
 			});
 
 			roomObj = World.getRoomObject(target.area, target.roomid);
@@ -1209,9 +1209,9 @@ Cmd.prototype.say = function(target, command) {
 					
 					if (Character.canSee(target, roomObj)) {
 						msg = '<div class="cmd-say"><span class="msg-name">' +
-						target.displayName + ' says></span> ' + command.msg + '</div>';
+						target.displayName + ' 說></span> ' + command.msg + '</div>';
 					} else {
-						msg = '<div class="cmd-say"><span class="msg-name">Someone says></span> ' + command.msg + '</div>';
+						msg = '<div class="cmd-say"><span class="msg-name">某人說></span> ' + command.msg + '</div>';
 					}
 
 					return fn(true, msg);
@@ -1220,13 +1220,13 @@ Cmd.prototype.say = function(target, command) {
 			});
 		} else {
 			World.msgPlayer(target, {
-				msg: 'You have nothing to say.',
+				msg: '你沒有什麼要說的。',
 				styleClass: 'error'
 			});
 		}
 	} else {
 		World.msgPlayer(target, {
-			msg: 'You can\'t say anything while sleeping!',
+			msg: '你睡覺的時候不能說話！',
 			styleClass: 'error'
 		});
 	}

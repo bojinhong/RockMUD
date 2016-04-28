@@ -26,11 +26,11 @@ World = require('./world').world;
 		if (World.time.hour === World.time.month.hourOfLight && World.time.minute === 1) {
 			// Morning
 			World.time.isDay = true;
-			areaMsg = 'The sun appears over the horizon.';
-		} else if (World.time.hour <= World.time.month.hourOfNight && World.time.minute === 1) {
+			areaMsg = '太陽從地平面緩緩升起。';
+		} else if (World.time.hour >= World.time.month.hourOfNight && World.time.minute === 1) {
 			// Nightfall
 			World.time.isDay = false;
-			areaMsg = 'The sun fades fully from view as night falls.';
+			areaMsg = '太陽西下，黑夜來臨。';
 		}
 
 		if (World.areas.length && areaMsg) {
@@ -198,7 +198,7 @@ World = require('./world').world;
 	setInterval(function() {
 		var s,
 		alerts = [
-			'Commands are not case sensitive. Use HELP COMMANDS to see the current command list.',
+			'命令沒有分大小寫。使用HELP COMMANDS可以查看命令說明。',
 			'Think of this as an example newbie help tick.'
 		];
 

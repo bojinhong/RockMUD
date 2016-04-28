@@ -1,6 +1,7 @@
 'use strict';
 var fs = require('fs'),
 World = require('./world').world,
+translate=require('./translate').translate,
 io = World.io,
 players = World.players,
 time = World.time,
@@ -45,15 +46,15 @@ Room.prototype.getDisplayHTML = function(roomObj, options) {
 	items = roomObj.items;
 
 	if (exits.length > 0) {
-		displayHTML += '<ul class="room-exits list-inline"><li class="list-label">Exits: </li>';
+		displayHTML += '<ul class="room-exits list-inline"><li class="list-label">出口： </li>';
 
 		for (i; i < exits.length; i += 1) {
-			displayHTML += '<li>' + exits[i].cmd + '</li>';
+			displayHTML += '<li>' + translate.direction(exits[i].cmd) + '</li>';
 		}
 
 		displayHTML += '</ul>';
 	} else {
-		displayHTML += '<p class="room-exits">Visible Exits: None.</p>';
+		displayHTML += '<p class="room-exits">可看見的出口： 沒有。</p>';
 	}
 
 	i = 0;
@@ -62,7 +63,7 @@ Room.prototype.getDisplayHTML = function(roomObj, options) {
 
 	if (items.length > 0) {
 		for (i; i < items.length; i += 1) {
-			displayHTML += '<li class="room-item">A ' + items[i].short + '</li>';
+			displayHTML += '<li class="room-item">一個 ' + items[i].short + '</li>';
 		}
 	}
 
@@ -71,11 +72,11 @@ Room.prototype.getDisplayHTML = function(roomObj, options) {
 	if (monsters.length > 0 || playersInRoom.length > 0) {
 		for (i; i < monsters.length; i += 1) {
 			if (!monsters[i].short) {
-				displayHTML += '<li class="room-monster">' + monsters[i].displayName + ' is ' + 
-				 monsters[i].position + ' here</li>';
+				displayHTML += '<li class="room-monster">' + monsters[i].displayName +  
+				 translate.position(monsters[i].position) + ' 在這裡。</li>';
 			} else {
-				displayHTML += '<li class="room-monster">' + monsters[i].short + ' is ' + 
-				 monsters[i].position + ' here</li>';
+				displayHTML += '<li class="room-monster">' + monsters[i].short + 
+				 translate.position(monsters[i].position) + ' 在這裡。</li>';
 			}
 		}
 
@@ -84,7 +85,7 @@ Room.prototype.getDisplayHTML = function(roomObj, options) {
 		for (i; i < playersInRoom.length; i += 1) {
 			if (!options || !options.hideCallingPlayer || options.hideCallingPlayer !== playersInRoom[i].name ) {
 				displayHTML += '<li class="room-player">' + playersInRoom[i].name 
-					+ ' the ' + playersInRoom[i].race + ' is ' + playersInRoom[i].position + ' here</li>';
+					+ ' 有一個 ' + playersInRoom[i].race +  translate.position(playersInRoom[i].position) + ' 在這裡。</li>';
 			}
 		}
 	}
@@ -162,11 +163,11 @@ Room.prototype.getBrief = function(roomObj, options) {
 		
 		for (i; i < monsters.length; i += 1) {
 			if (!monsters[i].short) {
-				displayHTML += '<li class="room-monster">' + monsters[i].displayName + ' is ' + 
-				monsters[i].position + ' there.</li>';
+				displayHTML += '<li class="room-monster">' + monsters[i].displayName +  
+				translate.position(monsters[i].position) + ' 在那裡。</li>';
 			} else {
-				displayHTML += '<li class="room-monster">' + monsters[i].short + ' is ' + 
-				monsters[i].position + ' there.</li>';
+				displayHTML += '<li class="room-monster">' + monsters[i].short + 
+				translate.position(monsters[i].position) + ' 在那裡。</li>';
 			}
 		}
 
@@ -175,13 +176,13 @@ Room.prototype.getBrief = function(roomObj, options) {
 		for (i; i < playersInRoom.length; i += 1) {
 			if (!options || !options.hideCallingPlayer || options.hideCallingPlayer !== playersInRoom[i].name ) {
 				displayHTML += '<li class="room-player">' + playersInRoom[i].name 
-					+ ' the ' + playersInRoom[i].race + ' is ' + playersInRoom[i].position + ' there.</li>';
+					+ ' 有一個 ' + playersInRoom[i].race + translate.position(playersInRoom[i].position) + ' 在那裡。</li>';
 			}
 		}
 
 		displayHTML += '</ul>';
 	} else {
-		displayHTML += '<p>Nothing you can see.</p>';
+		displayHTML += '<p>你看不到任何東西。</p>';
 	}
 
 	displayHTML = '<div class="room"><strong class="room-title">' + roomObj.title + '</strong>' + displayHTML;

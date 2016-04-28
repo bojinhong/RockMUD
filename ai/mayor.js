@@ -9,10 +9,10 @@ World = require('../src/world').world;
 */
 module.exports = {
 	exclimations: [
-		'What a beautiful city.',
-		'Welcome! Be sure to visit our world-famous Midgardian shops!',
-		'I lock up the city each evening, be sure to get your affairs in order before nightfall.',
-		'Each day before sunrise I lower the bridge and open the city.'
+		'多麼美麗的城市啊！',
+		'歡迎！記得要去我們的商店逛逛喔！',
+		'每天晚上我會把城門鎖好，記得晚上之前要回來喔！',
+		'每天早上我會把城門開啟並且放下吊橋。'
 	],
 	moveDirections: ['north', 'east', 'west', 'south'],
 	onAlive: function(roomObj) {

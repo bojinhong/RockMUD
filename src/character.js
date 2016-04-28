@@ -94,7 +94,7 @@ Character.prototype.generateSalt = function(fn) {
 
 Character.prototype.getPassword = function(s, fn) {
 	var character = this;
-	s.emit('msg', {msg: 'What is your password: ', res: 'enterPassword'});
+	s.emit('msg', {msg: '你的密碼： ', res: 'enterPassword'});
 
 	s.on('password', function (r) {
 		if (r.msg.length > 7) {
@@ -121,12 +121,12 @@ Character.prototype.getPassword = function(s, fn) {
 					}
 				} else {
 					s.emit('msg', {msg: 'Wrong! You are flagged after 5 incorrect responses.', res: 'enterPassword'});
-					return s.emit('msg', {msg: 'What is your password: ', res: 'enterPassword'});
+					return s.emit('msg', {msg: '你的密碼： ', res: 'enterPassword'});
 				}
 			});
 		} else {
 			s.emit('msg', {msg: 'Password has to be over eight characters.', res: 'enterPassword'});
-			return s.emit('msg', {msg: 'What is your password: ', res: 'enterPassword'});
+			return s.emit('msg', {msg: '你的密碼： ', res: 'enterPassword'});
 		}
 	});
 };
