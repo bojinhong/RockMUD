@@ -8,22 +8,22 @@ Translate.prototype.direction = function(cmd) {
 	var result="";
         switch(cmd){
         	case "east":
-                	result="東";
+                	result="東(e)";
                 break;
                 case "west":
-                        result="西";
+                        result="西(w)";
                 break;
                 case "south":
-                        result="南";
+                        result="南(s)";
                 break;
                 case "north":
-                        result="北";
+                        result="北(n)";
                 break;
                 case "up":
-                        result="上";
+                        result="上(u)";
                 break;
                 case "down":
-                        result="下";
+                        result="下(d)";
                 break;
         }
         return result;

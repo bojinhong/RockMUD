@@ -39,7 +39,7 @@ Character.prototype.login = function(r, s, fn) {
 				}
 			});
 		} else {
-			return s.emit('msg', {msg : '<b>Invalid Entry</b>. Enter your name:', res: 'login', styleClass: 'enter-name'});
+			return s.emit('msg', {msg : '<b>Invalid Entry</b>. 輸入你的名字：', res: 'login', styleClass: 'enter-name'});
 		}
 	} else {
 		s.emit('msg', {
@@ -161,7 +161,7 @@ Character.prototype.create = function(r, s, fn) {
 	s.player.created = new Date();
 	s.player.saved = null;
 	s.player.role = 'player';
-	s.player.area = 'Midgaard';
+	s.player.area = 'GITS Lab';
 	s.player.roomid = '1';
 	s.player.trains += 25;
 	s.player.deaths = 0;

@@ -63,7 +63,7 @@ Room.prototype.getDisplayHTML = function(roomObj, options) {
 
 	if (items.length > 0) {
 		for (i; i < items.length; i += 1) {
-			displayHTML += '<li class="room-item">一個 ' + items[i].short + '</li>';
+			displayHTML += '<li class="room-item">一個' + items[i].short + '</li>';
 		}
 	}
 
@@ -73,10 +73,10 @@ Room.prototype.getDisplayHTML = function(roomObj, options) {
 		for (i; i < monsters.length; i += 1) {
 			if (!monsters[i].short) {
 				displayHTML += '<li class="room-monster">' + monsters[i].displayName +  
-				 translate.position(monsters[i].position) + ' 在這裡。</li>';
+				 translate.position(monsters[i].position) + '在這裡。</li>';
 			} else {
 				displayHTML += '<li class="room-monster">' + monsters[i].short + 
-				 translate.position(monsters[i].position) + ' 在這裡。</li>';
+				 translate.position(monsters[i].position) + '在這裡。</li>';
 			}
 		}
 
@@ -85,7 +85,7 @@ Room.prototype.getDisplayHTML = function(roomObj, options) {
 		for (i; i < playersInRoom.length; i += 1) {
 			if (!options || !options.hideCallingPlayer || options.hideCallingPlayer !== playersInRoom[i].name ) {
 				displayHTML += '<li class="room-player">' + playersInRoom[i].name 
-					+ ' 有一個 ' + playersInRoom[i].race +  translate.position(playersInRoom[i].position) + ' 在這裡。</li>';
+					+ ' 有一個 ' + playersInRoom[i].race +  translate.position(playersInRoom[i].position) + '在這裡。</li>';
 			}
 		}
 	}
@@ -164,10 +164,10 @@ Room.prototype.getBrief = function(roomObj, options) {
 		for (i; i < monsters.length; i += 1) {
 			if (!monsters[i].short) {
 				displayHTML += '<li class="room-monster">' + monsters[i].displayName +  
-				translate.position(monsters[i].position) + ' 在那裡。</li>';
+				translate.position(monsters[i].position) + '在那裡。</li>';
 			} else {
 				displayHTML += '<li class="room-monster">' + monsters[i].short + 
-				translate.position(monsters[i].position) + ' 在那裡。</li>';
+				translate.position(monsters[i].position) + '在那裡。</li>';
 			}
 		}
 
@@ -176,7 +176,7 @@ Room.prototype.getBrief = function(roomObj, options) {
 		for (i; i < playersInRoom.length; i += 1) {
 			if (!options || !options.hideCallingPlayer || options.hideCallingPlayer !== playersInRoom[i].name ) {
 				displayHTML += '<li class="room-player">' + playersInRoom[i].name 
-					+ ' 有一個 ' + playersInRoom[i].race + translate.position(playersInRoom[i].position) + ' 在那裡。</li>';
+					+ ' 有一個 ' + playersInRoom[i].race + translate.position(playersInRoom[i].position) + '在那裡。</li>';
 			}
 		}
 

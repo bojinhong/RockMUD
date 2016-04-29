@@ -602,9 +602,9 @@ Cmd.prototype.move = function(target, command, fn) {
 						if (!sneakAff) {
 							if (Character.canSee(target, roomObj)) {
 								msg = '<strong>' + target.displayName
-								+ '</strong> enters the room from the ' + exitObj.cmd + '.';
+								+ '</strong>從' + exitObj.cmd + '進入這個房間。';
 							} else {
-								msg = '<strong>Something</strong> enters the room from the ' + exitObj.cmd + '.';
+								msg = '<strong>某個東西</strong>從' + exitObj.cmd + '進入這個房間。';
 							}
 						}
 

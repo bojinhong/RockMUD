@@ -49,7 +49,7 @@ World.setup(io, cfg, function(Character, Cmds, Skills) {
 	server.listen(process.env.PORT || cfg.port);
 
 	io.on('connection', function (s) {
-		s.emit('msg', {msg : 'Enter your name:', res: 'login', styleClass: 'enter-name'});
+		s.emit('msg', {msg : '輸入你的名字：', res: 'login', styleClass: 'enter-name'});
 
 		s.on('login', function (r) {
 			var parseCmd = function(r, s) {
@@ -147,7 +147,7 @@ World.setup(io, cfg, function(Character, Cmds, Skills) {
 					}
 				});
 			} else {
-				return s.emit('msg', {msg : 'Enter your name:', res: 'login', styleClass: 'enter-name'});
+				return s.emit('msg', {msg : '輸入你的名字：', res: 'login', styleClass: 'enter-name'});
 			}
 		});
 

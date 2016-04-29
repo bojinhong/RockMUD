@@ -48,7 +48,7 @@
     "diceNum": 0,
     "diceSides": 0,
     "attackType":"punch",
-    "area": "Midgaard",
+    "area": "GITS Lab",
     "roomid": "1",
     "recall": "1",
     "description": "",

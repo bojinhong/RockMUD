@@ -4,7 +4,7 @@ Room = require('../src/rooms').room,
 World = require('../src/world').world;
 
 module.exports = {
-    "name" : "Midgaard",
+    "name" : "GITS Lab",
     "id" : "1",
     "type" : "city",
     "levels" : "All",
@@ -23,9 +23,9 @@ module.exports = {
     "rooms" : [
         {
             "id" : "1",
-            "title" : "Town Square",
-            "area": "Midgaard",
-            "content" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue sagittis efficitur. Vivamus dapibus sem ac mauris pharetra dapibus. Nunc id ex orci. Quisque fringilla dictum orci molestie condimentum. Duis volutpat porttitor ipsum. Sed ac aliquet leo. Nulla at facilisis orci, eu suscipit nibh. ",
+            "title" : "GITS Lab",
+            "area": "GITS Lab",
+            "content" : "我們是一群專注於互、物聯網應用商務與技術開發的人，從裝置端的開發到雲端後台建置與資料分析，都是我們投入的範圍，希望透過這個交流的平台分享我們的收獲，如同魔豆穿透雲端，連接到未知世界 ^^。",
             "exits" : [
                 {
                     "cmd" : "north",
@@ -56,13 +56,13 @@ module.exports = {
             "playersInRoom": [],
             "monsters" : [
                 {
-                    "name": "Rufus",
+                    "name": "Lormann",
                     "level": 15,
-                    "short": "魯弗斯，這座城市的市長",
+                    "short": "Lormann，GITS Lab的技術長",
                     "description": "",
                     "race": "human",
                     "id": 9,
-                    "area": "Midgaard",
+                    "area": "GITS Lab",
                     "weight": 245,
                     "diceNum": 2, 
                     "diceSides": 8,
@@ -76,10 +76,10 @@ module.exports = {
                     "ac": 20,
                     "itemType": "mob",
                     "items": [{
-                        "name": "Midgaard city key", 
+                        "name": "GITS Lab city key", 
                         "short": "a small key",
                         "long": "A thin gold key with a ruby embbeded to the end." ,
-                        "area": "Midgaard",
+                        "area": "GITS Lab",
                         "id": "10",
                         "level": 1,
                         "itemType": "key",
@@ -92,16 +92,16 @@ module.exports = {
                         "flags": []
                     }],
                     "behaviors": [{
-                        "module" : "mayor"
+                        "module" : "lormann"
                     }]
                 }, {
-                    "name": "Boar",
-                    "displayName": ["Brown boar", "A old brown boar"],
+                    "name": "野豬(Boar)",
+                    "displayName": ["棕色野豬(Boar)", "棕色老野豬(Boar)"],
                     "level": 1,
-                    "short": ["一隻棕色的大野豬", "一隻巨大的野豬"],
+                    "short": ["一隻棕色的大野豬(Boar)", "一隻巨大的野豬(Boar)"],
                     "race": "animal",
                     "id": "6",
-                    "area": "Midgaard",
+                    "area": "GITS Lab",
                     "weight": 120,
                     "position": "standing",
                     "attackType": "bite",
@@ -116,36 +116,53 @@ module.exports = {
                     "behaviors": [{  
                         "module" : "wander"
                     }]
-                }, {
-                    "name": "Shackleton",
-                    "displayName": "The mayors dog",
+                },
+                {
+                    "name": "Schy",
                     "level": 15,
-                    "short": "Shackleton, the Mayors famous canine",
+                    "short": "Schy，Dev Manager",
                     "description": "",
                     "race": "human",
-                    "id": "100",
-                    "area": "Midgaard",
-                    "weight": 115,
-                    "diceNum": 2, 
+                    "id": 9,
+                    "area": "GITS Lab",
+                    "weight": 245,
+                    "diceNum": 2,
                     "diceSides": 8,
                     "diceMod": 5,
-                    "str": 13,
-                    "position": "resting",
-                    "attackType": "maw",
+                    "str": 16,
+                    "position": "standing",
+                    "attackType": "punch",
                     "damRoll": 10,
                     "hitRoll": 10,
                     "templates": [],
-                    "ac": 10,
+                    "ac": 20,
                     "itemType": "mob",
-                    "items": [],
-                    "behaviors": []
-                }
+                    "items": [{
+                        "name": "GITS Lab city key",
+                        "short": "a small key",
+                        "long": "A thin gold key with a ruby embbeded to the end." ,
+                        "area": "GITS Lab",
+                        "id": "10",
+                        "level": 1,
+                        "itemType": "key",
+                        "material": "gold",
+                        "weight": 0,
+                        "slot": "",
+                        "value": 1000,
+                        "equipped": false,
+                        "isKey": true,
+                        "flags": []
+                    }],
+                    "behaviors": [{
+                        "module" : "schy"
+                    }]
+                } 
             ],
             "items" : [{
                 "name": "Torch", 
-                "short": "骯髒煙灰覆蓋的火炬",
+                "short": "骯髒煙灰覆蓋的火炬(Torch)",
                 "long": "" ,
-                "area": "Midgaard",
+                "area": "GITS Lab",
                 "id": "104", 
                 "level": 1,
                 "itemType": "light",
@@ -156,39 +173,11 @@ module.exports = {
                 "equipped": false,
                 "decay": 10,
                 "flags": [] 
-            }, {
-                "name": "Small Buckler", 
-                "short": "small round buckler",
-                "long": "" ,
-                "area": "Midgaard",
-                "id": "103", 
-                "level": 1,
-                "itemType": "shield",
-                "material": "wood", 
-                "ac": 2, 
-                "weight": 1,
-                "slot": "hands",
-                "equipped": false,
-                "flags": []
-            }, {
-                "name": "Loaf of Bread",
-                "short": "brown loaf of bread",
-                "long": "A rather stale looking loaf of bread." ,
-                "area": "Midgaard",
-                "id": "7",
-                "level": 1,
-                "itemType": "food",
-                "weight": 0.5,
-                "diceNum": 1,
-                "diceSides": 6,
-                "diceMod": 1,
-                "decay": 7,
-                "flags": []
-            }, {
+            },  {
                 "name": "Short Sword", 
-                "short": "短劍",
+                "short": "短劍(Short Sword)",
                 "long": "一把鋒利的短劍包裹著皮革。" ,
-                "area": "Midgaard",
+                "area": "GITS Lab",
                 "id": "8",
                 "level": 1,
                 "itemType": "weapon",
@@ -209,33 +198,6 @@ module.exports = {
 				"onKill": function(roomObj) {
 					console.log('lol');
 				}
-            }, {
-                "name": "Burlap sack",
-                "short": "worn, tan, burlap sack",
-                "long": "A tan burlap sack with frizzed edges and various stains." ,
-                "area": "Midgaard",
-                "id": "27",
-                "level": 1,
-                "itemType": "container",
-                "weight": 1,
-                "items": [{
-                    "name": "Sewer key", 
-                    "short": "small rusty key",
-                    "long": "A small rusty key made of low quality iron." ,
-                    "area": "Midgaard",
-                    "id": "101",
-                    "level": 1,
-                    "itemType": "key",
-                    "material": "iron", 
-                    "weight": 0,
-                    "slot": "",
-                    "value": 1,
-                    "equipped": false,
-                    "isKey": true
-                }],
-                "isOpen": true,
-                "carryLimit": 50,
-                "flags": []
             }],
             "flags" : [],
             "onEnter": ""
@@ -243,7 +205,7 @@ module.exports = {
         {
             "id" : "2",
             "title" : "行動裝置研發實驗室",
-            "area": "Midgaard",
+            "area": "GITS Lab",
             "content" : "一個破舊的辦公室，桌上散亂的擺了一堆行動裝置，iPhone6、Note3、G4...，桌上電腦畫面中Android Studio還開著一個Project。 ",
             "exits" : [
                 {
@@ -259,7 +221,7 @@ module.exports = {
                     "description": "",
                     "race": "human",
                     "id": 9,
-                    "area": "Midgaard",
+                    "area": "GITS Lab",
                     "weight": 245,
                     "diceNum": 2,
                     "diceSides": 8,
@@ -273,10 +235,10 @@ module.exports = {
                     "ac": 20,
                     "itemType": "mob",
                     "items": [{
-                        "name": "Midgaard city key",
+                        "name": "GITS Lab city key",
                         "short": "a small key",
                         "long": "A thin gold key with a ruby embbeded to the end." ,
-                        "area": "Midgaard",
+                        "area": "GITS Lab",
                         "id": "10",
                         "level": 1,
                         "itemType": "key",
@@ -296,7 +258,7 @@ module.exports = {
                 "name": "iPhone6S", 
                 "short": "破舊的iPhone6S",
                 "long": "A round buckler that looks like its seen heavy use." ,
-                "area": "Midgaard",
+                "area": "GITS Lab",
                 "id": "2", 
                 "level": 1,
                 "itemType": "shield",
@@ -311,7 +273,7 @@ module.exports = {
                 "name": "Note3",        
                 "short":"螢幕裂開的Note3",
                 "long": "A round buckler that looks like its seen heavy use." ,
-                "area": "Midgaard",
+                "area": "GITS Lab",
                 "id": "2",
                 "level": 1,
                 "itemType": "shield",
@@ -327,8 +289,8 @@ module.exports = {
         },
         {
             "id" : "3",
-            "title" : "城市廣場東邊",
-            "area": "Midgaard",
+            "title" : "數據分析實驗室",
+            "area": "GITS Lab",
             "content" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue sagittis efficitur. Vivamus dapibus sem ac mauris pharetra dapibus. Nunc id ex orci. Quisque fringilla dictum orci molestie condimentum. Duis volutpat porttitor ipsum. Sed ac aliquet leo. Nulla at facilisis orci, eu suscipit nibh. ",
             "terrian" : "stone-road",
             "terrianMod": 0,
@@ -344,7 +306,7 @@ module.exports = {
                 "name": "Brown waterskin", 
                 "short": "brown waterskin",
                 "long": "A brown waterskin. The hide seems worn and used." ,
-                "area": "Midgaard",
+                "area": "GITS Lab",
                 "id": "102",
                 "level": 1,
                 "drinks": 6,
@@ -359,9 +321,9 @@ module.exports = {
         },
         {
             "id" : "4",
-            "title" : "城市廣場南邊",
-            "area": "Midgaard",
-            "content" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue sagittis efficitur. Vivamus dapibus sem ac mauris pharetra dapibus. Nunc id ex orci. Quisque fringilla dictum orci molestie condimentum. Duis volutpat porttitor ipsum. Sed ac aliquet leo. Nulla at facilisis orci, eu suscipit nibh. ",
+            "title" : "雲端開發實驗室",
+            "area": "GITS Lab",
+            "content" : "想看到sigrid的blog文章請打list。",
             "exits" : [
                 {
                     "cmd" : "north",
@@ -369,15 +331,86 @@ module.exports = {
                 }
             ],
             "playersInRoom": [],
-            "monsters" : [],
+            "monsters" : [
+         {
+                    "name": "Sigrid",
+                    "level": 15,
+                    "short": "Sigrid, 資深工程師",
+                    "description": "",
+                    "race": "dwarf",
+                    "id": "9",
+                    "area": "Midgaard",
+                    "weight": 200,
+                    "diceNum": 2, 
+                    "diceSides": 8,
+                    "diceMod": 5,
+                    "str": 18,
+                    "gold": 1000,
+                    "position": "standing",
+                    "attackType": "punch",
+                    "damRoll": 10,
+                    "hitRoll": 10,
+                    "templates": [],
+                    "ac": 20,
+                    "merchant": true,
+                    "itemType": "mob",
+                    "items": [{
+                        "name": "<a href=\"http://wp.me/p7t8c8-6x\" target=\"_blank\">使用Python取得Facebook文章存到DynamoDB</a>", 
+                        "short": "",
+                        "long": "" ,
+                        "area": "Midgaard",
+                        "id": "110",
+                        "level": 1,
+                        "itemType": "food",
+                        "material": "flesh", 
+                        "weight": 0,
+                        "slot": "",
+                        "value": 10,
+                        "equipped": false,
+                        "store": true,
+                        "worth": 10
+                    }, {
+                        "name": "<a href=\"http://wp.me/p7t8c8-6p\" target=\"_blank\">Tensorflow初體驗-環境建置</a>", 
+                        "short": "",
+                        "long": "" ,
+                        "area": "Midgaard",
+                        "id": "110",
+                        "level": 1,
+                        "itemType": "food",
+                        "material": "flesh", 
+                        "weight": 0,
+                        "slot": "",
+                        "value": 10,
+                        "equipped": false,
+                        "store": true,
+                        "worth": 10
+                    }, {
+                        "name": "<a href=\"http://wp.me/p7t8c8-3E\" target=\"_blank\">AWS SNS with APNS</a>", 
+                        "short": "",
+                        "long": "" ,
+                        "area": "Midgaard",
+                        "id": "110",
+                        "level": 1,
+                        "itemType": "food",
+                        "material": "flesh", 
+                        "weight": 0,
+                        "slot": "",
+                        "value": 10,
+                        "equipped": false,
+                        "store": true,
+                        "worth": 10
+                    }],
+                    "behaviors": [] 
+                }
+        ],
             "items" : [],
             "flags" : []
         },
         {
             "id" : "5",
-            "title" : "城市廣場西邊",
-            "area": "Midgaard",
-            "content" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue sagittis efficitur. Vivamus dapibus sem ac mauris pharetra dapibus. Nunc id ex orci. Quisque fringilla dictum orci molestie condimentum. Duis volutpat porttitor ipsum. Sed ac aliquet leo. Nulla at facilisis orci, eu suscipit nibh. ",
+            "title" : "DevOps流程控管實驗室",
+            "area": "GITS Lab",
+            "content" : "DevOps是一組過程、方法與系統的統稱，用於促進開發、技術運營和質量保障部門之間的溝通、協作與整合。 ",
             "exits" : [
                 {
                     "cmd" : "west",
@@ -394,7 +427,7 @@ module.exports = {
                 "name": "Leather Helmet", 
                 "short": "Leather Helmet",
                 "long": "" ,
-                "area": "Midgaard",
+                "area": "GITS Lab",
                 "id": "3", 
                 "level": 1,
                 "itemType": "armor",
@@ -409,8 +442,8 @@ module.exports = {
         },
         {
             "id" : "6",
-            "title" : "下城區廣場",
-            "area": "Midgaard",
+            "title" : "露天咖啡座",
+            "area": "GITS Lab",
             "content" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue sagittis efficitur. Vivamus dapibus sem ac mauris pharetra dapibus. Nunc id ex orci. Quisque fringilla dictum orci molestie condimentum. Duis volutpat porttitor ipsum. Sed ac aliquet leo. Nulla at facilisis orci, eu suscipit nibh. ",
             "exits" : [
                 {
@@ -448,9 +481,9 @@ module.exports = {
         },
         {
             "id" : "8",
-            "title" : "一般商店",
-            "area": "Midgaard",
-            "content" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue sagittis efficitur. Vivamus dapibus sem ac mauris pharetra dapibus. Nunc id ex orci. Quisque fringilla dictum orci molestie condimentum. Duis volutpat porttitor ipsum. Sed ac aliquet leo. Nulla at facilisis orci, eu suscipit nibh. ",
+            "title" : "科技新聞中心",
+            "area": "GITS Lab",
+            "content" : "GITS Lab的新聞中心，這邊會收集一些新的科技和產業新聞網站，請打list可以看到網站列表。",
             "exits" : [
                 {
                     "cmd" : "east",
@@ -462,11 +495,11 @@ module.exports = {
                 {
                     "name": "Tom",
                     "level": 15,
-                    "short": "Thomas, the dwarven shopkeep",
+                    "short": "Thomas, 科技新聞中心主任",
                     "description": "",
                     "race": "dwarf",
                     "id": "9",
-                    "area": "Midgaard",
+                    "area": "GITS Lab",
                     "weight": 200,
                     "diceNum": 2, 
                     "diceSides": 8,
@@ -482,10 +515,10 @@ module.exports = {
                     "merchant": true,
                     "itemType": "mob",
                     "items": [{
-                        "name": "Pemmican", 
+                        "name": "<a href=\"http://chinese.engadget.com/\" target=\"_blank\">Engadget中文版</a>", 
                         "short": "",
                         "long": "" ,
-                        "area": "Midgaard",
+                        "area": "GITS Lab",
                         "id": "110",
                         "level": 1,
                         "itemType": "food",
@@ -497,10 +530,10 @@ module.exports = {
                         "store": true,
                         "worth": 10
                     }, {
-                        "name": "Pemmican", 
+                        "name": "<a href=\"http://www.ithome.com.tw/\" target=\"_blank\">iThome</a>", 
                         "short": "",
                         "long": "" ,
-                        "area": "Midgaard",
+                        "area": "GITS Lab",
                         "id": "110",
                         "level": 1,
                         "itemType": "food",
@@ -512,10 +545,10 @@ module.exports = {
                         "store": true,
                         "worth": 10
                     }, {
-                        "name": "Pemmican", 
+                        "name": "<a href=\"http://buzzorange.com/techorange/\" target=\"_blank\">科技橘報</a>", 
                         "short": "",
                         "long": "" ,
-                        "area": "Midgaard",
+                        "area": "GITS Lab",
                         "id": "110",
                         "level": 1,
                         "itemType": "food",

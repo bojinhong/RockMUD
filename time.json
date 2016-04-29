@@ -8,8 +8,8 @@
 		"day": 1,
 		"days": 30,
 		"hoursInDay": 24,
-    	"hourOfLight": 1,
-    	"hourOfNight": 12
+    	"hourOfLight": 5,
+    	"hourOfNight": 20
 	},
     "day": 1,
     "hour": 1,
@@ -22,7 +22,7 @@
         "day": 1,
 		"days": 30,
 		"hoursInDay": 24,
-    	"hourOfLight": 1,
-    	"hourOfNight": 12
+    	"hourOfLight": 5,
+    	"hourOfNight": 20
     }]
 }
