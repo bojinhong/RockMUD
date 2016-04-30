@@ -122,7 +122,6 @@ window.onload = function() {
 	document.getElementById('console').onsubmit = function (e) {
 		var messageNodes = [],
 		msg = node.value.toLowerCase().trim();
-
 		display({
 			msg : checkAlias(msg, function(cmd) {
 				 return checkMovement(cmd, function(wasMov, cmd) {

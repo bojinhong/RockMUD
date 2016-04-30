@@ -12,6 +12,8 @@ Room = require('./rooms').room,
 Combat = require('./combat').combat,
 Skills = require('./skills').skills,
 Spells = require('./spells').spells,
+translate=require('./translate').translate,
+map=require('./map').map,
 players = World.players,
 time = World.time,
 areas = World.areas,
@@ -40,11 +42,11 @@ Cmd.prototype.buy = function(target, command) {
 					Character.addItem(target, item);
 					
 					World.msgPlayer(target, {
-						msg: 'You buy something.'
+						msg: '你買了某樣東西。'
 					});
 				} else {
 					World.msgPlayer(target, {
-						msg: 'Not enough Gold.',
+						msg: '你的錢不夠。',
 						styleClass: 'yellow'
 					});
 				}
@@ -83,7 +85,7 @@ Cmd.prototype.sell = function(target, command) {
 					Character.addItem(merchant, item);
 					
 					World.msgPlayer(target, {
-						msg: 'You sell something.'
+						msg: '你賣了某個東西。'
 					});
 				} else {
 					World.msgPlayer(target, {
@@ -161,9 +163,28 @@ Cmd.prototype.scan = function(target, command) {
 
 		World.msgPlayer(target, {msg: scanStr});
 	} else {
-		World.msgPlayer(target, {msg: 'You must be standing to scan the surrounding area.', styleClass: 'error'});
+		World.msgPlayer(target, {msg: '你必須站立才能掃描四周的區域。', styleClass: 'error'});
 	}
 };
+
+Cmd.prototype.map = function(target, command) {
+        var roomObj,
+        rooms,
+        i = 0,
+        mapStr = '';
+
+                roomObj = World.getRoomObject(target.area, target.roomid);
+                rooms = Room.getAdjacent(roomObj);
+
+         mapStr = map.draw(target);
+
+           //   for (i; i < 10; i += 1) {
+           //             scanStr += Room.getBrief(rooms[i]);
+           //     }
+
+                World.msgPlayer(target, {msg: mapStr});
+};
+
 
 Cmd.prototype.emote = function(target, command) {
 	var roomObj;
@@ -175,7 +196,7 @@ Cmd.prototype.emote = function(target, command) {
 			msg: '<div class="cmd-emote">' + target.displayName + ' ' + command.msg + '</div>'
 		});
 	} else {
-		World.msgPlayer(target, {msg: 'You can\'t emote right now.', styleClass: 'error'});
+		World.msgPlayer(target, {msg: '你現在無法表達情感。', styleClass: 'error'});
 	}
 };
 
@@ -199,23 +220,23 @@ Cmd.prototype.eat = function(target, command) {
 				}
 
 				World.msgRoom(roomObj, {
-					msg: target.displayName + ' eats a ' + item.short,
+					msg: target.displayName + '吃了一個' + item.short,
 					playerName: target.name,
 					styleClass: 'cmd-drop yellow'
 				});
 
 				World.msgPlayer(target, {
-					msg: 'You eat a ' + item.short,
+					msg: '你吃了一個' + item.short,
 					styleClass: 'cmd-drop blue'
 				});
 			} else {
-				World.msgPlayer(target, {msg: 'You can\'t eat something you dont have.', styleClass: 'error'});
+				World.msgPlayer(target, {msg: '你不能吃你沒有的東西。', styleClass: 'error'});
 			}
 		} else {
 			World.msgPlayer(target, {msg: 'Eat what?', styleClass: 'error'});
 		}
 	} else {
-		World.msgPlayer(target, {msg: 'You can\'t eat while sleeping.', styleClass: 'error'});
+		World.msgPlayer(target, {msg: '你不能在睡覺的時候吃東西。', styleClass: 'error'});
 	}
 };
 
@@ -602,9 +623,9 @@ Cmd.prototype.move = function(target, command, fn) {
 						if (!sneakAff) {
 							if (Character.canSee(target, roomObj)) {
 								msg = '<strong>' + target.displayName
-								+ '</strong>從' + exitObj.cmd + '進入這個房間。';
+								+ '</strong>從' + translate.position(exitObj.cmd) + '邊進入這個房間。';
 							} else {
-								msg = '<strong>某個東西</strong>從' + exitObj.cmd + '進入這個房間。';
+								msg = '<strong>某個東西</strong>從' + translate.position(exitObj.cmd) + '邊進入這個房間。';
 							}
 						}
 
@@ -620,7 +641,7 @@ Cmd.prototype.move = function(target, command, fn) {
 						if (!sneakAff) {
 							if (Character.canSee(target, roomObj)) {
 								msg = '<span class="yellow">' + target.displayName
-								+ '離開房間走向 <strong>' + direction + '</strong></div>';
+								+ '離開房間走向<strong>' + direction + '邊</strong></div>';
 							} else {
 								msg = '<span class="yellow">有東西離開房間。</div>';
 							}
@@ -698,10 +719,10 @@ Cmd.prototype.who = function(target, command) {
 			'<table class="table table-condensed table-no-border who-list">' +
 			'<thead>' +
 				'<tr>' +
-					'<td width="5%">Level</td>' +
-					'<td width="5%">Race</td>' +
-					'<td width="5%">Class</td>' +
-					'<td width="85%">Name</td>' +
+					'<td width="5%">等級</td>' +
+					'<td width="5%">種族</td>' +
+					'<td width="5%">職業</td>' +
+					'<td width="85%">姓名</td>' +
 				'</tr>' +
 			'</thead><tbody>' + str + '</tbody>' +
 		'</table></div>'
@@ -742,13 +763,13 @@ Cmd.prototype.get = function(target, command, fn) {
 
 						if (item) {
 							World.msgRoom(roomObj, {
-								msg: target.displayName + ' picks up a ' + item.short,
+								msg: target.displayName + '撿起一個' + item.short,
 								playerName: target.name,
 								styleClass: 'cmd-get yellow'
 							});
 
 							World.msgPlayer(target, {
-								msg: 'You pick up a ' + item.short,
+								msg: '你撿起一個' + item.short,
 								styleClass: 'cmd-get blue'
 							});
 
@@ -1209,7 +1230,7 @@ Cmd.prototype.say = function(target, command) {
 					
 					if (Character.canSee(target, roomObj)) {
 						msg = '<div class="cmd-say"><span class="msg-name">' +
-						target.displayName + ' 說></span> ' + command.msg + '</div>';
+						target.displayName + '說></span> ' + command.msg + '</div>';
 					} else {
 						msg = '<div class="cmd-say"><span class="msg-name">某人說></span> ' + command.msg + '</div>';
 					}
@@ -1235,11 +1256,11 @@ Cmd.prototype.say = function(target, command) {
 Cmd.prototype.yell = function(target, command) {
 	if (command.msg !== '') {
 		World.msgPlayer(target, {
-			msg: '<div class="cmd-yell"><span class="msg-name">You yell></span> ' + command.msg + '</div>'
+			msg: '<div class="cmd-yell"><span class="msg-name">你大喊></span> ' + command.msg + '</div>'
 		});
 		
 		World.msgArea(target.area, {
-			msg: '<div class="cmd-yell"><span class="msg-name">' + target.displayName + ' yells></span> ' + command.msg + '</div>',
+			msg: '<div class="cmd-yell"><span class="msg-name">' + target.displayName + '大喊></span> ' + command.msg + '</div>',
 			playerName: target.name
 		});
 	} else {
@@ -1254,7 +1275,7 @@ Cmd.prototype.yell = function(target, command) {
 Cmd.prototype.chat = function(target, command) {
 	if (command.msg !== '') {
 		World.msgPlayer(target, {
-			msg: '<div class="cmd-chat"><span class="msg-name">You chat></span> ' + command.msg + '</div>'
+			msg: '<div class="cmd-chat"><span class="msg-name">你閒談></span> ' + command.msg + '</div>'
 		});
 
 		World.msgWorld(target, {
@@ -1272,18 +1293,18 @@ Cmd.prototype.chat = function(target, command) {
 Cmd.prototype.tell = function(target, command) {
 	var player;
 
-	if (command.msg) {
-		player = World.getPlayerByName(command.msg);
+	if (command.arg) {
+		player = World.getPlayerByName(command.arg);
 
 		if (player) {
 			World.msgPlayer(player, {
-				msg: '<strong>' + player.displayName + ' tells you></strong> ' + command.msg,
+				msg: '<strong>' + target.displayName + '告訴你></strong> ' + command.input,
 				styleClass: 'red'
 			});
 
 			target.reply = player.name;
 
-			World.msgPlayer(target, {msg: 'You tell ' + target.displayName + '> ' + command.msg, styleClass: 'cmd-say red'});
+			World.msgPlayer(target, {msg: '你告訴' + player.displayName + '> ' + command.input, styleClass: 'cmd-say red'});
 		} else {
 			World.msgPlayer(target, {msg: 'You do not see that person.', styleClass: 'error'});
 		}
@@ -1300,13 +1321,13 @@ Cmd.prototype.reply = function(target, command) {
 
 		if (player) {
 			World.msgPlayer(player, {
-				msg: '<strong>' + player.displayName + ' replies></strong> ' + command.msg,
+				msg: '<strong>' + player.displayName + '回應></strong>' + command.msg,
 				styleClass: 'red'
 			});
 
 			target.reply = player.name;
 
-			World.msgPlayer(target, {msg: 'You reply ' + target.displayName + '> ' + command.msg, styleClass: 'cmd-say red'});
+			World.msgPlayer(target, {msg: '你回應' + target.displayName + '>' + command.msg, styleClass: 'cmd-say red'});
 		} else {
 			World.msgPlayer(target, {msg: 'They arent there anymore.', styleClass: 'error'});
 		}

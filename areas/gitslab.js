@@ -23,6 +23,7 @@ module.exports = {
     "rooms" : [
         {
             "id" : "1",
+            "location" : "E.6",
             "title" : "GITS Lab",
             "area": "GITS Lab",
             "content" : "我們是一群專注於互、物聯網應用商務與技術開發的人，從裝置端的開發到雲端後台建置與資料分析，都是我們投入的範圍，希望透過這個交流的平台分享我們的收獲，如同魔豆穿透雲端，連接到未知世界 ^^。",
@@ -204,6 +205,7 @@ module.exports = {
         },
         {
             "id" : "2",
+            "location" : "F.6",
             "title" : "行動裝置研發實驗室",
             "area": "GITS Lab",
             "content" : "一個破舊的辦公室，桌上散亂的擺了一堆行動裝置，iPhone6、Note3、G4...，桌上電腦畫面中Android Studio還開著一個Project。 ",
@@ -289,6 +291,7 @@ module.exports = {
         },
         {
             "id" : "3",
+            "location" : "E.7",
             "title" : "數據分析實驗室",
             "area": "GITS Lab",
             "content" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue sagittis efficitur. Vivamus dapibus sem ac mauris pharetra dapibus. Nunc id ex orci. Quisque fringilla dictum orci molestie condimentum. Duis volutpat porttitor ipsum. Sed ac aliquet leo. Nulla at facilisis orci, eu suscipit nibh. ",
@@ -321,6 +324,7 @@ module.exports = {
         },
         {
             "id" : "4",
+            "location" : "D.6",
             "title" : "雲端開發實驗室",
             "area": "GITS Lab",
             "content" : "想看到sigrid的blog文章請打list。",
@@ -408,6 +412,7 @@ module.exports = {
         },
         {
             "id" : "5",
+            "location" : "E.5",
             "title" : "DevOps流程控管實驗室",
             "area": "GITS Lab",
             "content" : "DevOps是一組過程、方法與系統的統稱，用於促進開發、技術運營和質量保障部門之間的溝通、協作與整合。 ",
@@ -442,6 +447,7 @@ module.exports = {
         },
         {
             "id" : "6",
+            "location" : "J.9",
             "title" : "露天咖啡座",
             "area": "GITS Lab",
             "content" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue sagittis efficitur. Vivamus dapibus sem ac mauris pharetra dapibus. Nunc id ex orci. Quisque fringilla dictum orci molestie condimentum. Duis volutpat porttitor ipsum. Sed ac aliquet leo. Nulla at facilisis orci, eu suscipit nibh. ",
@@ -481,6 +487,7 @@ module.exports = {
         },
         {
             "id" : "8",
+            "location" : "E.4",
             "title" : "科技新聞中心",
             "area": "GITS Lab",
             "content" : "GITS Lab的新聞中心，這邊會收集一些新的科技和產業新聞網站，請打list可以看到網站列表。",

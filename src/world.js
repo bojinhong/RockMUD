@@ -263,10 +263,8 @@ World.prototype.getPlayerByName = function(playerName) {
 	arr = [],
 	player,
 	i = 0;
-
 	for (i; i < world.players.length; i += 1) {
 		player = world.players[i];
-
 		if (player.name.toLowerCase() === playerName.toLowerCase()) {
 			return player;
 		}
@@ -534,6 +532,7 @@ World.prototype.getRoomObject = function(areaName, roomId) {
 			return area.rooms[i];
 		}
 	}
+        return null;
 };
 
 World.prototype.getAllMonstersFromArea = function(areaName) {

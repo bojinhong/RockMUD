@@ -1,58 +1,58 @@
 <div class="col-md-12">
 	<h2 class="green">Command Help</h2>
-	<p>Overview of RockMUD current commands. No command is case sensitive.</p>
+	<p>命令說明列表，英文命令沒有大小寫的分別。</p>
 </div>
 <div class="col-md-6">
 	<dl>
 		<dt>North, East, South, West, Up, Down</dt>
-		<dd>General movement directions. All possible directions map to the move command.</dd>
-		<dd>Aliases: n, r, s, w, u, d respectively.</dd>
+		<dd>一般移動命令有東、西、南、北、上、下等方向。</dd>
+		<dd>快速鍵： n, r, s, w, u, d</dd>
 
 		<dt>Look [target]</dt>
-		<dd>Look closely at something. If you do not give a target the current room is selected.</dd>
+		<dd>詳細看某個東西，如果沒有給目標物表示看整個房間。</dd>
 		<dd>Ex: look</dd>
 
 		<dt>Score</dt>
-		<dd>Your character stats and affects.</dd>
+		<dd>觀看你的人物目前狀態。</dd>
 
 		<dt>Inventory</dt>
-		<dd>Held items.</dd>
-		<dd>Aliases: i</dd>
+		<dd>顯示目前所擁有的物品。</dd>
+		<dd>快速鍵： i</dd>
 
 		<dt>Equipment</dt>
-		<dd>View worn equipment and open slots.</dd>
-		<dd>Aliases: eq</dd>
+		<dd>顯示目前的裝備。</dd>
+		<dd>快速鍵： eq</dd>
 
 		<dt>Stand</dt>
-		<dd>Stop sleeping or resting and return to the 'default' position.</dd>
+		<dd>站立，人物預設的狀態。</dd>
 
 		<dt>Rest</dt>
-		<dd>Take a resting position for increased regeneration. Cannot perform some actions.</dd>
+		<dd>休息，可以回復生命力，不過無法執行某些動作。</dd>
 
 		<dt>Sleep</dt>
-		<dd>Begin to sleep to greatly increase regeneration.</dd>
+		<dd>睡眠，可以快速回復生命力，不過無法執行某些動作。</dd>
 
 		<dt>Open [direction]</dt>
-		<dd>Open a closed door/pathway in a given direction. Giving the command a target will also work.</dd>
+		<dd>打開某個方向的門，也可以對某個物品做打開的動作。</dd>
 		<dd>Ex: open down OR open gate</dd>
 
 		<dt>Close [direction]</dt>
-		<dd>Close an opened door/pathway in a given direction. Giving the command a target will also work.</dd>
+		<dd>關閉某個方向的門，也可以對某個物品做關閉的動作。</dd>
 		<dd>Ex: close down OR close gate</dd>
 
 		<dt>Unlock [direction]</dt>
-		<dd>Unlock a pathway once you have the key in your inventory.</dd>
+		<dd>解鎖某個方向的門，也可以對某個物品做解鎖的動作。</dd>
 		<dd>Ex: unlock gate</dd>
 
 		<dt>Lock [direction]</dt>
-		<dd>Lock a pathway once you have the key in your inventory.</dd>
+		<dd>上鎖某個方向的門，也可以對某個物品做上鎖的動作。</dd>
 		<dd>Ex: lock gate</dd>
 
 		<dt>Time</dt>
-		<dd>Current mud time and status.</dd>
+		<dd>顯示目前遊戲中的時間和狀態。</dd>
 
 		<dt>Who</dt>
-		<dd>All visible players.</dd>
+		<dd>顯示目前遊戲中可見的玩家。</dd>
 
 		<dt>Title [new title]</dt>
 		<dd>The words that appear after your characters name on the score card and who window. Defaults to race and class.</dd>
@@ -61,19 +61,19 @@
 <div class="col-md-6">
 	<dl>
 		<dt>Get [item]</dt>
-		<dd>Pick up a target item in the current room or target container. Use get all to retrieve all of the items on the floor.</dd>
+		<dd>撿起某個物品，也可以使用get all撿起全部物品。</dd>
 		<dd>Ex: get bread OR get key bag</dd>
 
 		<dt>Drop [item]</dt>
-		<dd>Drop a target item.</dd>
+		<dd>丟棄某個物品。</dd>
 		<dd>Ex: drop bread OR drop all</dd>
 
 		<dt>Wear [item]</dt>
-		<dd>Wear a target item. It must be in your inventory</dd>
+		<dd>穿起某個在你物品欄中的物品。</dd>
 		<dd>Ex: wear sword</dd>
 
 		<dt>Remove [item]</dt>
-		<dd>Remove a target item. It must be in your inventory.</dd>
+		<dd>卸下某個在你物品欄中的物品。</dd>
 		<dd>Ex: remove sword</dd>
 
 		<dt>Move [direction]</dt>
@@ -81,23 +81,23 @@
 		<dd>Ex: move north</dd>
 
 		<dt>Say</dt>
-		<dd>Send a message to everyone in the current room.</dd>
+		<dd>送訊息給房間的人。</dd>
 		<dd>Ex: say hello</dd>
 
 		<dt>Yell</dt>
-		<dd>Send a message to everyone in your current area.</dd>
+		<dd>送訊息給這個區域的人。</dd>
 		<dd>Ex: yell hello</dd>
 
 		<dt>Chat</dt>
-		<dd>General mud-wide communication channel.</dd>
+		<dd>送訊息給這個遊戲的所有人。</dd>
 		<dd>Ex: chat hello</dd>
 
 		<dt>Kill [target]</dt>
-		<dd>Begin combat with a target.</dd>
-		<dd>Alias: k boar</dd>
+		<dd>和某個目標戰鬥。</dd>
+		<dd>快速鍵： k boar</dd>
 
 		<dt>Flee [direction]</dt>
-		<dd>Try to flee from battle. Name a direction or it will be randomized.</dd>
+		<dd>試著從戰鬥中逃跑，可以加上逃跑的方向。</dd>
 		<dd>Ex: flee</dd>
 
 		<dt>Cast [spell name] [target]</dt>
@@ -105,13 +105,15 @@
 		<dd>Ex: cast spark boar</dd>
 
 		<dt>Emote [message to room]</dt>
-		<dd>Emote an action to the room.</dd>
+		<dd>表現出情感的動作。</dd>
 		<dd>Ex: emote nods</dd>
 
 		<dt>Eat [food item in inventory]</dt>
-		<dd>Ex: eat pie</dd>
+		<dd>吃東西。</dd>
+                <dd>Ex: eat pie</dd>
 
 		<dt>Drink [liquid in inventory or room]</dt>
+                <dd>喝東西。</dd>
 		<dd>Ex: drink waterskin</dd>
 
 		<dt>Scan</dt>
