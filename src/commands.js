@@ -605,8 +605,8 @@ Cmd.prototype.move = function(target, command, fn) {
 				}
 
 				if (target.isPlayer) {
-					this.look(target);
-
+                                        this.map(target);
+                                        this.look(target);
 					Room.removePlayer(roomObj, target);
 
 					targetRoom.playersInRoom.push(target);
@@ -623,9 +623,9 @@ Cmd.prototype.move = function(target, command, fn) {
 						if (!sneakAff) {
 							if (Character.canSee(target, roomObj)) {
 								msg = '<strong>' + target.displayName
-								+ '</strong>從' + translate.position(exitObj.cmd) + '邊進入這個房間。';
+								+ '</strong>從' + exitObj.cmd + '邊進入這個房間。';
 							} else {
-								msg = '<strong>某個東西</strong>從' + translate.position(exitObj.cmd) + '邊進入這個房間。';
+								msg = '<strong>某個東西</strong>從' + exitObj.cmd + '邊進入這個房間。';
 							}
 						}
 

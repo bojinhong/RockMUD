@@ -40,7 +40,7 @@ Map.prototype.draw = function(target) {
                                 }                         
                          }
                          if(flag){
-                         	result += "<td bgcolor=\"#FFFFFF\"><font color=\"#D8D8D8\">&nbsp;&nbsp;&nbsp;&nbsp;</font></td>";
+                         	result += "<td bgcolor=\"#000000\"><font color=\"#D8D8D8\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></td>";
                          }
                 }
                 result += "</tr>";
