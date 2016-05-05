@@ -623,9 +623,9 @@ Cmd.prototype.move = function(target, command, fn) {
 						if (!sneakAff) {
 							if (Character.canSee(target, roomObj)) {
 								msg = '<strong>' + target.displayName
-								+ '</strong>從' + exitObj.cmd + '邊進入這個房間。';
+								+ '</strong>從' + translate.direction(exitObj.cmd.trim()) + '邊進入這個房間。';
 							} else {
-								msg = '<strong>某個東西</strong>從' + exitObj.cmd + '邊進入這個房間。';
+								msg = '<strong>某個東西</strong>從' + translate.direction(exitObj.cmd.trim()) + '邊進入這個房間。';
 							}
 						}
 
@@ -641,7 +641,7 @@ Cmd.prototype.move = function(target, command, fn) {
 						if (!sneakAff) {
 							if (Character.canSee(target, roomObj)) {
 								msg = '<span class="yellow">' + target.displayName
-								+ '離開房間走向<strong>' + direction + '邊</strong></div>';
+								+ '離開房間走向<strong>' + translate.direction(direction.trim()) + '邊</strong></div>';
 							} else {
 								msg = '<span class="yellow">有東西離開房間。</div>';
 							}

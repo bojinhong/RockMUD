@@ -11,18 +11,18 @@ World = require('./world').world,
 Skills = require('./skills').skills,
 Character = function () {
 	this.statusReport = [
-		{msg: ' is bleeding all over the place and looks nearly dead!', percentage: 0},
-		{msg: ' is bleeding profusely.', percentage: 10},
-		{msg: ' has some major cuts and brusies.', percentage: 20},
-		{msg: ' has some large cuts and looks exhausted!', percentage: 30},
-		{msg: ' has some minor cuts and brusies.', percentage: 40},
-		{msg: ' is tired and bruised.', percentage: 50},
-		{msg: ' is hurt and showing signs of fatigue.', percentage: 60},
-		{msg: ' is looking tired and wounded.', percentage: 70},
-		{msg: ' is barely wounded.', percentage: 80},
-		{msg: ' is in great shape.', percentage: 90},
-		{msg: ' still seems in perfect health!', percentage: 95},
-		{msg: ' is in perfect health!', percentage: 100}
+		{msg: ' 全身流血看來已經接近死亡！', percentage: 0},
+		{msg: ' 處於血流如注的狀態。', percentage: 10},
+		{msg: ' 有一些重大割傷和瘀傷。', percentage: 20},
+		{msg: ' 有一些大的傷口，看起來筋疲力盡！', percentage: 30},
+		{msg: ' 有一些小割傷和瘀傷。', percentage: 40},
+		{msg: ' 累了並且傷痕累累。', percentage: 50},
+		{msg: ' 處於受傷狀態並顯出疲態。', percentage: 60},
+		{msg: ' 看起來有點累也有點受傷！', percentage: 70},
+		{msg: ' 輕微的受傷！', percentage: 80},
+		{msg: ' 處於良好的健康狀態！', percentage: 90},
+		{msg: ' 仍然處於完美的健康狀態！', percentage: 95},
+		{msg: ' 處於完美的健康狀態！', percentage: 100}
 	];
 };
 
@@ -39,11 +39,11 @@ Character.prototype.login = function(r, s, fn) {
 				}
 			});
 		} else {
-			return s.emit('msg', {msg : '<b>Invalid Entry</b>. 輸入你的名字：', res: 'login', styleClass: 'enter-name'});
+			return s.emit('msg', {msg : '<b>輸入無效</b>。 輸入你的名字：', res: 'login', styleClass: 'enter-name'});
 		}
 	} else {
 		s.emit('msg', {
-			msg: 'Invalid name choice, must be more than two characters.',
+			msg: '無效的名字，至少需要超過兩個字。',
 			res: 'login',
 			styleClass: 'error'
 		});
@@ -112,7 +112,7 @@ Character.prototype.getPassword = function(s, fn) {
 						fn(s);
 					} else {
 						if (msg === undefined) {
-							s.emit('msg', {msg: 'Error logging in, please retry.'});
+							s.emit('msg', {msg: '登入錯誤，請重試。'});
 
 							return s.disconnect();
 						} else {
@@ -120,12 +120,12 @@ Character.prototype.getPassword = function(s, fn) {
 						}
 					}
 				} else {
-					s.emit('msg', {msg: 'Wrong! You are flagged after 5 incorrect responses.', res: 'enterPassword'});
+					s.emit('msg', {msg: '超過5次登入錯誤，你已經被標記了。', res: 'enterPassword'});
 					return s.emit('msg', {msg: '你的密碼： ', res: 'enterPassword'});
 				}
 			});
 		} else {
-			s.emit('msg', {msg: 'Password has to be over eight characters.', res: 'enterPassword'});
+			s.emit('msg', {msg: '錯誤！密碼需要有8個字或以上。', res: 'enterPassword'});
 			return s.emit('msg', {msg: '你的密碼： ', res: 'enterPassword'});
 		}
 	});
@@ -233,7 +233,7 @@ Character.prototype.create = function(r, s, fn) {
 
 					fn(s);
 				} else {
-					s.emit('msg', {msg: 'Error logging in, please retry.'});
+					s.emit('msg', {msg: '登入錯誤，請重試。'});
 
 					s.disconnect();
 				}
@@ -299,9 +299,8 @@ Character.prototype.newCharacter = function(r, s, fn) {
 
 		if	(races.length - 1 === i) {
 			s.emit('msg', {
-				msg: s.player.name + ' is a new character! There are three steps until ' + s.player.name + 
-				' is saved. The <strong>first step</strong> is to select a race: <ul>' + str +
-				'</ul><p class="tip">You can learn more about each race by typing help race name</p>',
+				msg: s.player.name + ' 是一個新的腳色！再3個步驟就完成設定了。<strong>第1步驟</strong>先選擇種族： <ul>' + str +
+				'</ul><p class="tip">你可以打入指令help加上種族名稱來學習更多有關的資訊</p>',
 				res: 'selectRace',
 				styleClass: 'race-selection'
 			});		
@@ -323,8 +322,8 @@ Character.prototype.newCharacter = function(r, s, fn) {
 
 							if	(classes.length - 1 === i) {
 								s.emit('msg', {
-									msg: 'Great, <strong>two more steps to go!</strong> Now time to select a class for ' + s.player.name +
-									'. Pick one of the following: <ul>' + 
+									msg: '很好，<strong>再兩個步驟就設定好了！</strong>現在幫' + s.player.name +
+									'從下面列表選一個職業：<ul>' + 
 									str + '</ul>', 
 									res: 'selectClass', 
 									styleClass: 'race-selection'
@@ -338,8 +337,8 @@ Character.prototype.newCharacter = function(r, s, fn) {
 											s.player.charClass = r.msg;
 											
 											s.emit('msg', {
-												msg: s.player.name + ' is a ' + s.player.charClass + '! <strong>One more step before ' + s.player.name + 
-												' is saved</strong>. Please define a password (8 or more characters):', 
+												msg: s.player.name + '是' + s.player.charClass + '！<strong>再一個步驟' + s.player.name + 
+												'這個帳號就完成設定了</strong>。請設定密碼(需要8個或以上的字元)：', 
 												res: 'createPassword', 
 												styleClass: 'race-selection'
 											});
@@ -349,18 +348,18 @@ Character.prototype.newCharacter = function(r, s, fn) {
 													s.player.password = r.msg;
 													character.create(r, s, fn);
 												} else {
-													s.emit('msg', {msg: 'Password should be longer', styleClass: 'error' });
+													s.emit('msg', {msg: '密碼太短了', styleClass: 'error' });
 												}
 											});
 										} else {
-											s.emit('msg', {msg: 'That class is not on the list, please try again', styleClass: 'error' });
+											s.emit('msg', {msg: '你選的職業沒有在列表上，請再選一次', styleClass: 'error' });
 										}
 									}); 
 								});
 							}
 						}
 					} else if (!fnd && r.cmd !== 'help') {
-						s.emit('msg', {msg: 'That race is not on the list, please try again', styleClass: 'error' });
+						s.emit('msg', {msg: '你選的種族沒有在列表上，請再選一次', styleClass: 'error' });
 					}
 				});
 			});
@@ -388,7 +387,7 @@ Character.prototype.raceSelection = function(r, s, fn) {
 
 				return fn(r, s, false);
 			} else {
-				s.emit('msg', {msg: 'No help file found for this race.', styleClass: 'error' });
+				s.emit('msg', {msg: '沒有發現你的種族的幫助文件。', styleClass: 'error' });
 
 				return fn(r, s, false);
 			}
@@ -425,7 +424,7 @@ Character.prototype.save = function(player, fn) {
 		player.socket = socket;
 		
 		if (err) {
-			return World.msgPlayer(player, {msg: 'Error saving character.'});
+			return World.msgPlayer(player, {msg: '儲存時發生錯誤。'});
 		} else {
 			return fn(player);
 		}
@@ -549,9 +548,9 @@ Character.prototype.hunger = function(target) {
 			}
 
 			if (World.dice.roll(1, 2) === 1) {
-				World.msgPlayer(target, {msg: 'You feel hungry.', styleClass: 'hunger'});
+				World.msgPlayer(target, {msg: '你感到飢餓。', styleClass: 'hunger'});
 			} else {
-				World.msgPlayer(target, {msg: 'Your stomach begins to growl.', styleClass: 'hunger'});
+				World.msgPlayer(target, {msg: '你的胃開始咆哮。', styleClass: 'hunger'});
 			}
 		}
 	} else {
@@ -565,7 +564,7 @@ Character.prototype.hunger = function(target) {
 		}
 		*/
 
-		World.msgPlayer(target, {msg: 'You are dying of hunger.', styleClass: 'hunger'});
+		World.msgPlayer(target, {msg: '你快餓死了。', styleClass: 'hunger'});
 	}
 };
 
@@ -589,9 +588,9 @@ Character.prototype.thirst = function(target) {
 			}
 
 			if (World.dice.roll(1, 2) === 1) {
-				World.msgPlayer(target, {msg: 'You are thirsty.', styleClass: 'thirst'});
+				World.msgPlayer(target, {msg: '你口渴了。', styleClass: 'thirst'});
 			} else {
-				World.msgPlayer(target, {msg: 'Your lips are parched.', styleClass: 'thirst'});
+				World.msgPlayer(target, {msg: '你的嘴唇乾裂。', styleClass: 'thirst'});
 			}
 		}
 	} else {
@@ -605,7 +604,7 @@ Character.prototype.thirst = function(target) {
 		}
 		*/
 
-		World.msgPlayer(target, {msg: 'You are dying of thirst.', styleClass: 'thirst'});
+		World.msgPlayer(target, {msg: '你快渴死了。', styleClass: 'thirst'});
 	}
 };
 
@@ -879,7 +878,7 @@ Character.prototype.removeEq = function(player, item) {
 	this.removeStatMods(player, item);
 
 	World.msgPlayer(player, {
-		msg: 'You stopped using a ' + item.short + '.'
+		msg: '你停止使用' + item.short + '。'
 	});
 };
 
@@ -940,7 +939,7 @@ Character.prototype.wearWeapon = function(target, weapon) {
 	this.addStatMods(target, weapon);
 
 	World.msgPlayer(target, {
-		msg: 'You wield a ' + weapon.short + ' in your ' + slot.name + '.'
+		msg: '你用'+ slot.name+ '揮舞著' + weapon.short + '。'
 	});
 };
 
@@ -954,7 +953,7 @@ Character.prototype.wearShield = function(target, shield) {
 	this.addStatMods(target, shield);
 
 	World.msgPlayer(target, {
-		msg: 'You begin defending yourself with a ' + shield.short + '.'
+		msg: '你用' + shield.short + '防禦自己。'
 	});
 };
 
@@ -969,11 +968,11 @@ Character.prototype.wearLight = function(target, light) {
 
 	if (slot.item.decay > 0) {
 		World.msgPlayer(target, {
-			msg: 'A ' + light.short + ' shines brightly as you hold it.'
+			msg: light.short + '猛烈的燃燒因而發出耀眼的光芒。'
 		});
 	} else {
 		World.msgPlayer(target, {
-			msg: 'You being holding a ' + light.short + ' but it is burned out.'
+			msg: '你手中拿的' + light.short + '已經燃燒殆盡。'
 		});
 	}
 };
@@ -1091,7 +1090,7 @@ Character.prototype.canSee = function(player, roomObj, light) {
 
 Character.prototype.createCorpse = function(player) {
 	player.level = 1;
-	player.short = 'rotting corpse of a ' + player.name;
+	player.short = player.name+'的腐爛屍體';
 	player.decay = 1;
 	player.itemType = 'corpse';
 	player.corpse = true;
