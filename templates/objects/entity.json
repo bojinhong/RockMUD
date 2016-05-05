@@ -66,23 +66,23 @@
     "kingdom": "mammal",
     "killed": 0,
     "eq": [{
-        "name": "Head",
+        "name": "頭部",
         "item": null,
         "slot": "head"
     }, {
-        "name": "Necklace 1",
+        "name": "項鍊1",
         "item": null,
         "slot": "head"
     }, {
-        "name": "Necklace 2",
+        "name": "項鍊2",
         "item": null,
         "slot": "head"
     }, {
-        "name": "Body",
+        "name": "身體",
         "item": null,
         "slot": "body"
     }, {
-        "name": "Chest",
+        "name": "胸部",
         "item": null,
         "slot": "body"
     }, {
@@ -90,41 +90,41 @@
         "item": null,
         "slot": "body"
     }, {
-        "name": "Right Arm",
+        "name": "右臂",
         "item": null,
         "slot": "arms"
     }, {
-        "name": "Left Arm",
+        "name": "左臂",
         "item": null,
         "slot": "arms"
     }, {
-        "name": "Right Hand",
+        "name": "右手",
         "item": null,
         "dual": false,
         "slot": "hands"
     }, {
-        "name": "Left Hand",
+        "name": "左手",
         "item": null,
         "dual": false,
         "slot": "hands"
     }, {
-        "name": "Ring 1",
+        "name": "戒子1",
         "item": null,
         "slot": "fingers"
     }, {
-        "name": "Ring 2",
+        "name": "戒子2",
         "item": null,
         "slot": "fingers"
     }, {
-        "name": "Right Leg",
+        "name": "右腿",
         "item": null,
         "slot": "legs"
     }, {
-        "name": "Left Leg",
+        "name": "左腿",
         "item": null,
         "slot": "legs"
     }, {
-        "name": "Feet",
+        "name": "雙腳",
         "item": null,
         "slot": "feet"
     }, {

@@ -579,9 +579,9 @@ World.prototype.prompt = function(target) {
 		player = target;
 	}
 
-	prompt = '<' + player.chp + '/'  + player.hp + '<span class="red">生命</span>><' +
-		player.cmana + '/'  + player.mana + '<span class="blue">法力</span>><' + 
-		player.cmv + '/'  + player.mv +'<span class="yellow">行動</span>>';
+	prompt = '[' + player.chp + '/'  + player.hp + '<span class="red">生命</span>][' +
+		player.cmana + '/'  + player.mana + '<span class="blue">法力</span>][' + 
+		player.cmv + '/'  + player.mv +'<span class="yellow">行動</span>]';
 
 	if (player.role === 'admin') {
 		prompt += '<' + player.wait + 'w>';

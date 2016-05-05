@@ -187,23 +187,23 @@ Combat.prototype.attack = function(attacker, opponent, roomObj, fn) {
 							}
 						} else {
 							if (attacker.isPlayer) {
-								msgForAttacker += '<div>You swing at a ' + opponent.displayName + ' and miss!</div>';
+								msgForAttacker += '<div>你試著攻擊' + opponent.displayName + '但是失誤了！</div>';
 							}
 
 							if (opponent.isPlayer) {
 								msgForAttacker += '<div>' + attacker.displayName +
-								' tries to attack but you dodge at the last minute!</div>';
+								'試著攻擊你但是被你躲開了！</div>';
 							}
 						}
 					} else {
 						if (attacker.isPlayer) {
-							msgForAttacker += '<div>You try to attack a ' + opponent.displayName +
-							' and they block your attack!</div>';
+							msgForAttacker += '<div>你試著攻擊' + opponent.displayName +
+							'但是他擋住了你的攻擊！</div>';
 						}
 
 						if (opponent.isPlayer) {
 							msgForAttacker += '<div>' + attacker.displayName +
-							' swings widly and you narrowly block their attack!</div>';
+							'瘋狂攻擊，你勉強擋住他們的攻擊！</div>';
 						}
 					}
 
@@ -252,12 +252,12 @@ Combat.prototype.processFight = function(player, opponent, roomObj, fn) {
 	player.opponent = opponent;
 
 	World.msgPlayer(player, {
-		msg: 'You scream and charge at a ' + opponent.name,
+		msg: '你大叫並衝向' + opponent.name,
 		noPrompt: true
 	});
 
 	World.msgPlayer(opponent, {
-		msg: 'A ' + player.displayName + ' screams and charges at you!',
+		msg: player.displayName + '大叫並衝向你！',
 		noPrompt: true
 	});
 
@@ -331,15 +331,15 @@ Combat.prototype.processEndOfMobCombat = function(combatInterval, player, oppone
 	if (exp > 0) {
 		player.exp += exp;
 
-		endOfCombatMsg = 'You won the fight! You learn some things, resulting in ' + exp + ' experience points.';
+		endOfCombatMsg = '你贏得戰鬥！學到了' + exp + '經驗點數。';
 	} else {
-		endOfCombatMsg ='You won but learned nothing.';
+		endOfCombatMsg ='你贏了但是沒有學到任何東西。';
 	}
 
 	if (opponent.gold) {
 		player.gold += opponent.gold;
 
-		endOfCombatMsg += ' <span class="yellow">You find ' + opponent.gold + ' coins on the corpse.</span>';
+		endOfCombatMsg += ' <span class="yellow">你在屍體裡面找到' + opponent.gold + '塊錢。</span>';
 	}
 	
 	if (player.wait > 0) {

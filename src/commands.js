@@ -1424,14 +1424,14 @@ Cmd.prototype.equipment = function(target, command) {
 			'"><label>' + target.eq[i].name + '</label>: ';
 		
 		if (target.eq[i].item === null || target.eq[i].item === '') {
-			eqStr += ' Nothing</li>';
+			eqStr += ' 無</li>';
 		} else {
 			eqStr += '<label class="yellow">'  + target.eq[i].item.short + '</label></li>';
 		}
 	}
 	
 	World.msgPlayer(target, {
-		msg: '<div class="eq-cmd"><h1>You are wearing:</h1>' +
+		msg: '<div class="eq-cmd"><h1>你的裝備：</h1>' +
 			'<ul class="list-unstyled equipment-list">' +
 		eqStr + '</ul></div>', 
 		styleClass: 'cmd-eq' 
