@@ -85,7 +85,7 @@ Room.prototype.getDisplayHTML = function(roomObj, options) {
 		for (i; i < playersInRoom.length; i += 1) {
 			if (!options || !options.hideCallingPlayer || options.hideCallingPlayer !== playersInRoom[i].name ) {
 				displayHTML += '<li class="room-player">' + playersInRoom[i].name 
-					+ ' 有一個 ' + playersInRoom[i].race +  translate.position(playersInRoom[i].position) + '在這裡。</li>';
+					+ '這個' + translate.race(playersInRoom[i].race.trim()) +  translate.position(playersInRoom[i].position) + '在這裡。</li>';
 			}
 		}
 	}
@@ -176,7 +176,7 @@ Room.prototype.getBrief = function(roomObj, options) {
 		for (i; i < playersInRoom.length; i += 1) {
 			if (!options || !options.hideCallingPlayer || options.hideCallingPlayer !== playersInRoom[i].name ) {
 				displayHTML += '<li class="room-player">' + playersInRoom[i].name 
-					+ ' 有一個 ' + playersInRoom[i].race + translate.position(playersInRoom[i].position) + '在那裡。</li>';
+					+ '這個' + translate.race(playersInRoom[i].race.trim()) + translate.position(playersInRoom[i].position) + '在那裡。</li>';
 			}
 		}
 

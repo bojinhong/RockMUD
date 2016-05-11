@@ -33,20 +33,40 @@ Translate.prototype.position = function(cmd) {
         var result="";
         switch(cmd){
                 case "standing":
-                        result="站立";
+                        result="站立(standing)";
                 break;
                 case "sleeping":
-                        result="睡覺";
+                        result="睡覺(sleeping)";
                 break;
                 case "resting":
-                        result="休息";
+                        result="休息(resting)";
                 break;
                 case "flighting":
-                        result="戰鬥";
+                        result="戰鬥(flighting)";
                 break;
         }
         return result;
 }
+
+Translate.prototype.race = function(cmd) {
+        var result="";
+        switch(cmd){
+                case "dwarf":
+                        result="矮人(dwarf)";
+                break;
+                case "elf":
+                        result="精靈(elf)";
+                break;
+                case "human":
+                        result="人類(human)";
+                break;
+                case "ogre":
+                        result="食人魔(ogre)";
+                break;
+        }
+        return result;
+}
+
 
 /*
 // General dice rolling
