@@ -1,5 +1,6 @@
 {
     "name": "Fighter",
+    "fullname": "戰士(fighter)",
     "classAbbr": "Fig",
     "playable": true,
     "hp": 10,

@@ -1,5 +1,6 @@
 {
     "name": "Dwarf",
+    "fullname": "矮人(dwarf)",
 	"raceAbbr": "Dwf",
     "con": 2,
     "int": -1,

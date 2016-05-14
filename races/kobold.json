@@ -1,5 +1,6 @@
 {
     "name": "Kobold",
+    "fullname":"狗頭人(kobold)",
     "dex": 1,
     "playable": false,
     "attackType": "claw",

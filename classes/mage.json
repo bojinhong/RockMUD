@@ -1,5 +1,6 @@
 {
     "name": "Mage",
+    "fullname":"法師(mage)",
     "classAbbr": "Mag",
     "playable": true,
     "mana": 30,

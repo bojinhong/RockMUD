@@ -1,5 +1,6 @@
 {
     "name": "Thief",
+    "fullname":"盜賊(thief)",
     "classAbbr": "Thi",
     "playable": true,
     "mv": 10,

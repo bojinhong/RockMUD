@@ -1,6 +1,7 @@
 
 {
     "name": "Human",
+    "fullname": "人類(human)",
     "wis": 1,
     "playable": true,
     "trains": 5,

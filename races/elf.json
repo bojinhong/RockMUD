@@ -1,6 +1,7 @@
 
 {
     "name": "Elf",
+    "fullname":"精靈(elf)",
     "int": 3,
     "con": -2,
     "playable": true,

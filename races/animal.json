@@ -1,5 +1,6 @@
 {
     "name": "Animal",
+    "fullname":"動物(animal)",
     "abbv": "ani",
     "playable": false,
     "attackType": "claw",

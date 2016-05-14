@@ -295,7 +295,7 @@ Character.prototype.newCharacter = function(r, s, fn) {
 	classes = World.getPlayableClasses();
 
 	for (i; i < races.length; i += 1) {
-		str += '<li class="race-list-'+ races[i].name + '">' + races[i].name + '</li>';
+		str += '<li class="race-list-'+ races[i].name + '">' + races[i].fullname + '</li>';
 
 		if	(races.length - 1 === i) {
 			s.emit('msg', {
@@ -318,7 +318,7 @@ Character.prototype.newCharacter = function(r, s, fn) {
 						s.player.race = r.cmd;
 
 						for (i; i < classes.length; i += 1) {
-							str += '<li>' + classes[i].name + '</li>';
+							str += '<li>' + classes[i].fullname + '</li>';
 
 							if	(classes.length - 1 === i) {
 								s.emit('msg', {
